@@ -135,7 +135,7 @@ export default function ProfilePage() {
                 <Package className="h-16 w-16 text-muted-foreground" />
                 <h3 className="mt-4 text-xl font-medium">No orders yet</h3>
                 <p className="mt-2 text-muted-foreground max-w-md mx-auto">
-                  You haven't placed any orders yet. Browse our products and make your first purchase!
+                  You haven&apos;t placed any orders yet. Browse our products and make your first purchase!
                 </p>
                 <Button asChild className="mt-6">
                   <Link href="/products">Browse Products</Link>

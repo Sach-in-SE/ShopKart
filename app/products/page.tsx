@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { products } from "@/lib/products";
 import FilteredProductList from "@/components/filtered-product-list";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
@@ -27,7 +26,7 @@ export default function ProductsPage() {
       </div>
 
       <Suspense fallback={<div>Loading products...</div>}>
-        <FilteredProductList products={products} />
+        <FilteredProductList />
       </Suspense>
     </div>
   );

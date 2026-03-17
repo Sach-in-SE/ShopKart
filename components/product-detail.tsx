@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { 
   Minus, 
@@ -24,10 +25,11 @@ import {
   TabsList, 
   TabsTrigger 
 } from "@/components/ui/tabs";
-import { Product, getFeaturedProducts } from "@/lib/products";
+import { Product } from "@/lib/products";
 import { useCart } from "@/context/cart-context";
 import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
+import { useProducts } from "@/context/product-context";
 
 interface ProductDetailProps {
   product: Product;
@@ -35,11 +37,14 @@ interface ProductDetailProps {
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
   const [quantity, setQuantity] = useState(1);
+  const { products } = useProducts();
   const { addToCart } = useCart();
   const { isAuthenticated } = useAuth();
   const { toast } = useToast();
   const router = useRouter();
-  const relatedProducts = getFeaturedProducts().filter(p => p.id !== product.id).slice(0, 4);
+  const relatedProducts = products
+    .filter((p) => p.featured && p.id !== product.id)
+    .slice(0, 4);
 
   const handleAddToCart = () => {
     if (!isAuthenticated) {
@@ -82,11 +87,13 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="overflow-hidden rounded-lg">
-          <img
+          <Image
             src={product.image}
             alt={product.name}
+            width={900}
+            height={900}
             className="h-full w-full object-cover"
-            loading="eager"
+            priority
           />
         </div>
 
@@ -307,10 +314,12 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
           {relatedProducts.map((relatedProduct) => (
             <Card key={relatedProduct.id} className="overflow-hidden h-full flex flex-col">
               <Link href={`/products/${relatedProduct.id}`} className="overflow-hidden">
-                <div className="aspect-square overflow-hidden">
-                  <img
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
                     src={relatedProduct.image}
                     alt={relatedProduct.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="h-full w-full object-cover transition-transform hover:scale-105"
                     loading="lazy"
                   />

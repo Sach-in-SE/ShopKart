@@ -1,51 +1,42 @@
-import { Suspense } from "react";
+"use client";
+
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getProductsByCategory, getCategories } from "@/lib/products";
+import { useParams } from "next/navigation";
 import ProductGrid from "@/components/product-grid";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
+import { useProducts } from "@/context/product-context";
 
-interface CategoryPageProps {
-  params: {
-    slug: string;
-  };
-}
+export default function CategoryPage() {
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug ?? "";
+  const { getCategories, getProductsByCategory } = useProducts();
 
-export async function generateMetadata({ params }: CategoryPageProps) {
   const categories = getCategories();
-  const category = categories.find((c) => c.slug === params.slug);
-  
+  const category = categories.find((item) => item.slug === slug);
+  const products = getProductsByCategory(slug);
+
   if (!category) {
-    return {
-      title: "Category Not Found | Shopkart",
-      description: "The requested category could not be found.",
-    };
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8 flex items-center gap-4">
+          <Link href="/products">
+            <Button variant="ghost" size="sm" className="gap-1">
+              <ChevronLeft className="h-4 w-4" />
+              Back to Products
+            </Button>
+          </Link>
+        </div>
+        <div className="rounded-lg border border-dashed p-10 text-center">
+          <h1 className="text-2xl font-bold">Category not found</h1>
+          <p className="mt-2 text-muted-foreground">
+            The category you are looking for does not exist.
+          </p>
+        </div>
+      </div>
+    );
   }
-  
-  return {
-    title: `${category.name} | Shopkart`,
-    description: `Browse our collection of ${category.name.toLowerCase()} products.`,
-  };
-}
 
-export async function generateStaticParams() {
-  const categories = getCategories();
-  return categories.map((category) => ({
-    slug: category.slug,
-  }));
-}
-
-export default function CategoryPage({ params }: CategoryPageProps) {
-  const categories = getCategories();
-  const category = categories.find((c) => c.slug === params.slug);
-  
-  if (!category) {
-    notFound();
-  }
-  
-  const products = getProductsByCategory(params.slug);
-  
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 flex items-center gap-4">
@@ -61,9 +52,16 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading products...</div>}>
+      {products.length === 0 ? (
+        <div className="rounded-lg border border-dashed p-10 text-center">
+          <h2 className="text-lg font-semibold">No products in this category</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Check back soon for new arrivals.
+          </p>
+        </div>
+      ) : (
         <ProductGrid products={products} />
-      </Suspense>
+      )}
     </div>
   );
 }

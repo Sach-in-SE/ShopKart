@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { ShoppingCart, User, Search, Menu, X, Sun, Moon, LogOut } from "lucide-react";
+import { ShoppingCart, User, Search, Menu, Sun, Moon, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -18,10 +18,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/context/cart-context";
 import { useAuth } from "@/context/auth-context";
+import { useProducts } from "@/context/product-context";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const { cartItems } = useCart();
+  const { getCategories } = useProducts();
   const { user, isAuthenticated, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,20 +44,15 @@ const Header = () => {
 
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  const categories = [
-    { name: "Electronics", href: "/category/electronics" },
-    { name: "Clothing", href: "/category/clothing" },
-    { name: "Home & Kitchen", href: "/category/home-kitchen" },
-    { name: "Beauty", href: "/category/beauty" },
-    { name: "Books", href: "/category/books" },
-    { name: "Accessories", href: "/category/accessories" },
-  ];
+  const categories = getCategories().map((category) => ({
+    name: category.name,
+    href: `/category/${category.slug}`,
+  }));
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // In a real app, this would navigate to search results
-      console.log(`Searching for: ${searchQuery}`);
+      router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 

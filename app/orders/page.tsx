@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   Card, 
@@ -108,7 +109,7 @@ export default function OrdersPage() {
             <Package className="h-16 w-16 text-muted-foreground" />
             <h3 className="mt-4 text-xl font-medium">No orders yet</h3>
             <p className="mt-2 text-muted-foreground max-w-md mx-auto">
-              You haven't placed any orders yet. Browse our products and make your first purchase!
+              You haven&apos;t placed any orders yet. Browse our products and make your first purchase!
             </p>
             <Button asChild className="mt-6">
               <Link href="/products">Browse Products</Link>
@@ -173,9 +174,11 @@ export default function OrdersPage() {
                       {order.items.map((item) => (
                         <div key={item.product.id} className="flex items-center gap-4">
                           <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
-                            <img
+                            <Image
                               src={item.product.image}
                               alt={item.product.name}
+                              width={80}
+                              height={80}
                               className="h-full w-full object-cover"
                             />
                           </div>

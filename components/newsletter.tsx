@@ -67,7 +67,7 @@ const Newsletter = () => {
           <DialogHeader>
             <DialogTitle>Thank you for subscribing!</DialogTitle>
             <DialogDescription>
-              You've been successfully added to our newsletter. We'll keep you updated with the latest news and offers.
+              You&apos;ve been successfully added to our newsletter. We&apos;ll keep you updated with the latest news and offers.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>

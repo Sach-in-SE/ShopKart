@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,10 +44,12 @@ const ProductGrid = ({ products }: ProductGridProps) => {
       {products.map((product) => (
         <Card key={product.id} className="overflow-hidden h-full flex flex-col">
           <Link href={`/products/${product.id}`} className="overflow-hidden">
-            <div className="aspect-square overflow-hidden">
-              <img
+            <div className="relative aspect-square overflow-hidden">
+              <Image
                 src={product.image}
                 alt={product.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="h-full w-full object-cover transition-transform hover:scale-105"
                 loading="lazy"
               />

@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+    "description": "Industry-leading active noise cancellation with adaptive sound control for travel and work.\nUp to 30 hours battery backup with quick charge support and crystal-clear voice calling.",
+    "price": 349.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+    "category": "electronics",
+    "stock": 42
+  },
+  {
+    "title": "Samsung 55-inch 4K UHD Smart TV",
+    "description": "Vivid 4K picture quality with HDR support and ultra-slim bezel design.\nBuilt-in streaming apps and voice assistant compatibility for a complete home entertainment setup.",
+    "price": 629.0,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1200&q=80",
+    "category": "electronics",
+    "stock": 27
+  },
+  {
+    "title": "Apple iPad 10th Gen 64GB Wi-Fi",
+    "description": "Powerful A14 Bionic performance for work, entertainment, and online classes.\nAll-day battery life with a vivid display ideal for reading, drawing, and streaming.",
+    "price": 449.0,
+    "image": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&w=1200&q=80",
+    "category": "electronics",
+    "stock": 33
+  },
+  {
+    "title": "Logitech MX Master 3S Wireless Mouse",
+    "description": "Ergonomic premium mouse with ultra-fast MagSpeed scrolling and silent clicks.\nPerfect for productivity workflows with multi-device pairing and USB-C charging.",
+    "price": 119.99,
+    "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1200&q=80",
+    "category": "electronics",
+    "stock": 58
+  },
+  {
+    "title": "boAt Stone 1200 Bluetooth Party Speaker",
+    "description": "Portable high-output speaker with punchy bass and IPX7 splash resistance.\nIdeal for indoor gatherings and weekend trips with long battery backup.",
+    "price": 89.5,
+    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1200&q=80",
+    "category": "electronics",
+    "stock": 71
+  },
+  {
+    "title": "Levi's Slim Fit Stretch Denim Jeans",
+    "description": "Classic slim-fit silhouette crafted with stretch denim for all-day comfort.\nPairs effortlessly with tees, shirts, and sneakers for smart-casual styling.",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1200&q=80",
+    "category": "fashion",
+    "stock": 64
+  },
+  {
+    "title": "Allen Solly Men's Solid Casual Shirt",
+    "description": "Breathable cotton-blend shirt with modern fit and premium finish.\nSuitable for office Fridays, dinners, and everyday polished looks.",
+    "price": 34.75,
+    "image": "https://images.unsplash.com/photo-1603252109303-2751441f668a?auto=format&fit=crop&w=1200&q=80",
+    "category": "fashion",
+    "stock": 53
+  },
+  {
+    "title": "BIBA Women's Printed Anarkali Kurta",
+    "description": "Elegant ethnic wear with vibrant print and flattering flare cut.\nSoft fabric ensures comfort for festive events and day-long occasions.",
+    "price": 59.9,
+    "image": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=1200&q=80",
+    "category": "fashion",
+    "stock": 36
+  },
+  {
+    "title": "Puma Running Shoes with Cushioned Sole",
+    "description": "Lightweight running shoes designed for shock absorption and stability.\nBreathable mesh upper keeps feet cool during workouts and daily walks.",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+    "category": "fashion",
+    "stock": 92
+  },
+  {
+    "title": "Titan Neo Analog Stainless Steel Watch",
+    "description": "Premium stainless steel watch with minimalist analog dial and durable strap.\nA timeless accessory suitable for business attire and formal occasions.",
+    "price": 129.0,
+    "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1200&q=80",
+    "category": "fashion",
+    "stock": 25
+  },
+  {
+    "title": "Atomic Habits by James Clear",
+    "description": "Bestselling self-improvement guide focused on building systems over goals.\nPractical frameworks and examples make it actionable for daily life and work.",
+    "price": 18.99,
+    "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80",
+    "category": "books",
+    "stock": 87
+  },
+  {
+    "title": "The Psychology of Money by Morgan Housel",
+    "description": "Insightful personal finance book explaining behavior-driven wealth decisions.\nWritten in short, engaging chapters with real-world investing lessons.",
+    "price": 16.5,
+    "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1200&q=80",
+    "category": "books",
+    "stock": 66
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "description": "Beloved fantasy novel with immersive storytelling and unforgettable characters.\nA perfect addition for collectors and first-time readers alike.",
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=1200&q=80",
+    "category": "books",
+    "stock": 40
+  },
+  {
+    "title": "Deep Work by Cal Newport",
+    "description": "Productivity classic on cultivating focus in a distraction-heavy world.\nProvides practical methods to improve concentration and output quality.",
+    "price": 17.25,
+    "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80",
+    "category": "books",
+    "stock": 49
+  },
+  {
+    "title": "The Alchemist by Paulo Coelho",
+    "description": "Inspirational fiction centered on purpose, dreams, and persistence.\nSimple prose and profound themes make it a long-time reader favorite.",
+    "price": 12.75,
+    "image": "https://images.unsplash.com/photo-1455885666463-7c0f2f3f2f46?auto=format&fit=crop&w=1200&q=80",
+    "category": "books",
+    "stock": 78
+  },
+  {
+    "title": "Philips Air Fryer 4.1L Digital",
+    "description": "Rapid air technology for crispy cooking with less oil and even heating.\nPreset controls simplify daily meals from fries to grilled vegetables.",
+    "price": 149.99,
+    "image": "https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=1200&q=80",
+    "category": "home",
+    "stock": 31
+  },
+  {
+    "title": "Prestige Stainless Steel Cookware Set (5 pcs)",
+    "description": "Durable multi-purpose cookware set suitable for induction and gas stovetops.\nMirror-finish steel body with ergonomic handles for safe everyday use.",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1584990347449-ae8e6f9f6f95?auto=format&fit=crop&w=1200&q=80",
+    "category": "home",
+    "stock": 54
+  },
+  {
+    "title": "IKEA MALM Bedside Table Walnut Finish",
+    "description": "Compact bedside table with smooth drawer operation and clean modern styling.\nIdeal for organizing essentials while complementing contemporary bedrooms.",
+    "price": 69.0,
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+    "category": "home",
+    "stock": 45
+  },
+  {
+    "title": "Dyson V8 Cordless Vacuum Cleaner",
+    "description": "Powerful suction with cordless convenience for quick whole-home cleaning.\nIncludes multi-surface attachments and up to 40 minutes runtime.",
+    "price": 329.5,
+    "image": "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1200&q=80",
+    "category": "home",
+    "stock": 22
+  },
+  {
+    "title": "SleepyCat Orthopedic Memory Foam Mattress",
+    "description": "Pressure-relieving memory foam mattress engineered for spinal alignment.\nBreathable fabric top layer improves comfort during long summer nights.",
+    "price": 279.99,
+    "image": "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=1200&q=80",
+    "category": "home",
+    "stock": 18
+  },
+  {
+    "title": "Nivia Storm Football Size 5",
+    "description": "Match-ready football with durable outer layer and consistent flight control.\nDesigned for training grounds, turf games, and weekend tournaments.",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
+    "category": "sports",
+    "stock": 96
+  },
+  {
+    "title": "Yonex GR 303 Badminton Racket Combo",
+    "description": "Lightweight graphite rackets offering quick swings and balanced control.\nGreat for beginners and intermediate players practicing footwork and smashes.",
+    "price": 39.95,
+    "image": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1200&q=80",
+    "category": "sports",
+    "stock": 73
+  },
+  {
+    "title": "Decathlon 20kg Adjustable Dumbbell Set",
+    "description": "Home-gym friendly adjustable dumbbells for progressive strength training.\nSecure locking mechanism ensures safe workouts for multiple exercises.",
+    "price": 119.0,
+    "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+    "category": "sports",
+    "stock": 29
+  },
+  {
+    "title": "Adidas Yoga Mat 8mm Anti-Slip",
+    "description": "Cushioned anti-slip mat for yoga, stretching, and bodyweight routines.\nMoisture-resistant surface is easy to clean and durable for daily practice.",
+    "price": 34.5,
+    "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+    "category": "sports",
+    "stock": 61
+  },
+  {
+    "title": "Cosco Cricket Kit Bag with Wheels",
+    "description": "Spacious cricket bag with reinforced compartments for bat, pads, and gloves.\nHeavy-duty wheel base makes travel easy for practice and match days.",
+    "price": 57.25,
+    "image": "https://images.unsplash.com/photo-1593341646782-e0b495cff86d?auto=format&fit=crop&w=1200&q=80",
+    "category": "sports",
+    "stock": 37
+  }
+]

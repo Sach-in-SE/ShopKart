@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { getFeaturedProducts, Product } from "@/lib/products";
+import { Product } from "@/lib/products";
 import { useCart } from "@/context/cart-context";
 import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
+import { useProducts } from "@/context/product-context";
 
 const FeaturedProducts = () => {
-  const featuredProducts = getFeaturedProducts();
+  const { products } = useProducts();
+  const featuredProducts = products.filter((product) => product.featured);
   const { addToCart } = useCart();
   const { isAuthenticated } = useAuth();
   const { toast } = useToast();
@@ -57,10 +59,12 @@ const FeaturedProducts = () => {
           {featuredProducts.slice(0, 8).map((product) => (
             <Card key={product.id} className="overflow-hidden h-full flex flex-col">
               <Link href={`/products/${product.id}`} className="overflow-hidden">
-                <div className="aspect-square overflow-hidden">
-                  <img
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
                     src={product.image}
                     alt={product.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="h-full w-full object-cover transition-transform hover:scale-105"
                   />
                 </div>

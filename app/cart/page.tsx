@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Trash2, 
   Plus, 
@@ -66,7 +67,7 @@ export default function CartPage() {
           <ShoppingBag className="h-16 w-16 text-muted-foreground" />
           <h2 className="mt-4 text-xl font-semibold">Your cart is empty</h2>
           <p className="mt-2 text-center text-muted-foreground">
-            Looks like you haven't added any products to your cart yet.
+            Looks like you haven&apos;t added any products to your cart yet.
           </p>
           <Link href="/products" className="mt-6">
             <Button>Browse Products</Button>
@@ -83,9 +84,11 @@ export default function CartPage() {
                 {cartItems.map((item) => (
                   <div key={item.product.id} className="flex flex-col gap-4 sm:flex-row">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
-                      <img
+                      <Image
                         src={item.product.image}
                         alt={item.product.name}
+                        width={96}
+                        height={96}
                         className="h-full w-full object-cover"
                       />
                     </div>

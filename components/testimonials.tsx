@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -38,7 +39,7 @@ const Testimonials = () => {
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight">What Our Customers Say</h2>
           <p className="mt-2 text-muted-foreground max-w-2xl">
-            Don't just take our word for it. Here's what our satisfied customers have to say about their shopping experience.
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about their shopping experience.
           </p>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -46,9 +47,11 @@ const Testimonials = () => {
             <Card key={testimonial.id} className="h-full">
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-center gap-4 mb-4">
-                  <img
+                  <Image
                     src={testimonial.avatar}
                     alt={testimonial.name}
+                    width={48}
+                    height={48}
                     className="h-12 w-12 rounded-full object-cover"
                   />
                   <div>

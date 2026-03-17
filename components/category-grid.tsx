@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { getCategories } from "@/lib/products";
+import Image from "next/image";
+import { useProducts } from "@/context/product-context";
 
 const categoryImages = {
   "electronics": "https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80",
@@ -11,6 +14,7 @@ const categoryImages = {
 };
 
 const CategoryGrid = () => {
+  const { getCategories } = useProducts();
   const categories = getCategories();
 
   return (
@@ -27,10 +31,12 @@ const CategoryGrid = () => {
               href={`/category/${category.slug}`}
               className="group relative overflow-hidden rounded-lg"
             >
-              <div className="aspect-[4/3] w-full">
-                <img
+              <div className="relative aspect-[4/3] w-full">
+                <Image
                   src={categoryImages[category.slug as keyof typeof categoryImages] || "https://images.unsplash.com/photo-1472851294608-062f824d29cc"}
                   alt={category.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

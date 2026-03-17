@@ -34,8 +34,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (storedUser) {
       try {
         setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error("Failed to parse user from localStorage:", error);
+      } catch {
+        localStorage.removeItem("user");
       }
     }
     setIsLoading(false);
