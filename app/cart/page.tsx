@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { 
@@ -25,11 +25,10 @@ import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, updateQuantity, subtotal, clearCart } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, subtotal } = useCart();
   const { isAuthenticated } = useAuth();
   const { toast } = useToast();
   const router = useRouter();
-  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -42,41 +41,8 @@ export default function CartPage() {
     }
   }, [isAuthenticated, router, toast]);
 
-  const handleCheckout = async () => {
-    setIsCheckingOut(true);
-    
-    try {
-      // Create order object
-      const order = {
-        id: `ord_${Date.now()}`,
-        date: new Date().toISOString(),
-        items: cartItems,
-        total: subtotal,
-        status: "pending",
-      };
-
-      // Store order in localStorage
-      const existingOrders = JSON.parse(localStorage.getItem("orders") || "[]");
-      localStorage.setItem("orders", JSON.stringify([order, ...existingOrders]));
-
-      // Show success message
-      toast({
-        title: "Order placed successfully!",
-        description: "Thank you for your purchase.",
-      });
-
-      // Clear cart and redirect
-      clearCart();
-      router.push("/orders");
-    } catch (error) {
-      toast({
-        title: "Checkout failed",
-        description: "There was an error processing your order. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsCheckingOut(false);
-    }
+  const handleCheckout = () => {
+    router.push("/checkout/address");
   };
 
   if (!isAuthenticated) {
@@ -207,10 +173,9 @@ export default function CartPage() {
                 <Button
                   className="w-full gap-2"
                   onClick={handleCheckout}
-                  disabled={isCheckingOut}
                 >
                   <CreditCard className="h-4 w-4" />
-                  {isCheckingOut ? "Processing..." : "Checkout"}
+                  Checkout
                 </Button>
               </CardFooter>
             </Card>

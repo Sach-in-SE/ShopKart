@@ -16,21 +16,40 @@ import { useAuth } from "@/context/auth-context";
 import { Package, ChevronLeft, Truck, CheckCircle2, Clock } from "lucide-react";
 import { CartItem } from "@/context/cart-context";
 
+interface DeliveryAddress {
+  fullName: string;
+  phoneNumber: string;
+  addressLine: string;
+  city: string;
+  state: string;
+  pincode: string;
+}
+
+interface OrderUser {
+  id: string;
+  name: string;
+  email: string;
+}
+
 interface Order {
   id: string;
   date: string;
   items: CartItem[];
   total: number;
-  status: "pending" | "in_transit" | "delivered";
+  user?: OrderUser;
+  deliveryAddress?: DeliveryAddress;
+  status: "placed" | "pending" | "in_transit" | "delivered";
 }
 
 const statusIcons = {
+  placed: Package,
   pending: Clock,
   in_transit: Truck,
   delivered: CheckCircle2
 };
 
 const statusColors = {
+  placed: "text-indigo-500",
   pending: "text-yellow-500",
   in_transit: "text-blue-500",
   delivered: "text-green-500"
@@ -132,6 +151,25 @@ export default function OrdersPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
+                      {order.user && (
+                        <div className="rounded-md border p-3 text-sm">
+                          <p className="font-medium">Customer</p>
+                          <p className="text-muted-foreground">{order.user.name} ({order.user.email})</p>
+                        </div>
+                      )}
+
+                      {order.deliveryAddress && (
+                        <div className="rounded-md border p-3 text-sm">
+                          <p className="font-medium">Delivery Address</p>
+                          <p className="text-muted-foreground">
+                            {order.deliveryAddress.fullName}, {order.deliveryAddress.phoneNumber}
+                          </p>
+                          <p className="text-muted-foreground">
+                            {order.deliveryAddress.addressLine}, {order.deliveryAddress.city}, {order.deliveryAddress.state} - {order.deliveryAddress.pincode}
+                          </p>
+                        </div>
+                      )}
+
                       {order.items.map((item) => (
                         <div key={item.product.id} className="flex items-center gap-4">
                           <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
